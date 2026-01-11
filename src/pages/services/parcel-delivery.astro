@@ -30,7 +30,7 @@ const seo = {
     description: service.longDescription,
     provider: {
       '@type': 'LocalBusiness',
-      name: "Don's Transport Shuttle",
+      name: import.meta.env.PUBLIC_BUSINESS_NAME || "The Don Wagon",
       telephone: import.meta.env.PUBLIC_PHONE || '+27 77 364 2006',
       email: import.meta.env.PUBLIC_EMAIL || 'donstransport@voogt.co.za',
     },

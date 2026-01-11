@@ -1,8 +1,8 @@
-# SEO Strategy - Don's Transport Shuttle
+# SEO Strategy - The Don Wagon
 
 ## Overview
 
-This document outlines the SEO strategy for Don's Transport Shuttle website, focusing on local search dominance in the Gauteng transport/shuttle market.
+This document outlines the SEO strategy for The Don Wagon website, focusing on local search dominance in the Gauteng transport/shuttle market.
 
 ## Target Market
 
@@ -67,8 +67,8 @@ Each service page should target location variations:
 ### Every Page Must Have:
 
 1. **Unique Title Tag** (55-60 characters)
-   - Format: `[Primary Keyword] | Don's Transport Shuttle`
-   - Example: `Airport Transfers Johannesburg | Don's Transport Shuttle`
+   - Format: `[Primary Keyword] | The Don Wagon`
+   - Example: `Airport Transfers Johannesburg | The Don Wagon`
 
 2. **Meta Description** (150-160 characters)
    - Include primary keyword naturally
@@ -100,7 +100,7 @@ Each service page should target location variations:
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Don's Transport Shuttle",
+  "name": "The Don Wagon",
   "description": "...",
   "url": "https://transport.voogt.co.za",
   "telephone": "+27...",

@@ -1,13 +1,13 @@
 ---
 name: transport-development
-description: Use this skill when working on Don's Transport Shuttle website - Astro static site development, Tailwind styling, component creation, or page development.
+description: Use this skill when working on The Don Wagon website - Astro static site development, Tailwind styling, component creation, or page development.
 ---
 
-# Don's Transport Shuttle - Development Skill
+# The Don Wagon - Development Skill
 
 ## Project Context
 
-**Client:** Don's Transport Shuttle (Gauteng-based transport company)
+**Client:** The Don Wagon (Gauteng-based transport company)
 **Type:** Static marketing website
 **Stack:** Astro 4.x + Tailwind CSS + Lucide Icons
 
@@ -72,7 +72,7 @@ interface Props {
 ---
 
 <head>
-  <title>{title} | Don's Transport Shuttle</title>
+  <title>{title} | The Don Wagon</title>
   <meta name="description" content={description} />
   <meta name="keywords" content={keywords} />
   <link rel="canonical" href={canonical} />

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Michael T.",
       "location": "Sandton",
-      "text": "I use Don's for all my airport transfers. Always on time, professional drivers, and the vehicles are spotless. Highly recommend for business travelers.",
+      "text": "I use The Don Wagon for all my airport transfers. Always on time, professional drivers, and the vehicles are spotless. Highly recommend for business travelers.",
       "rating": 5,
       "service": "airport-transfers",
       "verified": true
@@ -22,7 +22,7 @@
       "id": 3,
       "name": "James M.",
       "location": "Midrand",
-      "text": "Had urgent documents that needed to get to Joburg CBD within hours. Don's delivered on time and kept me updated throughout. Lifesaver!",
+      "text": "Had urgent documents that needed to get to Joburg CBD within hours. The Don Wagon delivered on time and kept me updated throughout. Lifesaver!",
       "rating": 5,
       "service": "parcel-delivery",
       "verified": true
@@ -31,7 +31,7 @@
       "id": 4,
       "name": "Lisa P.",
       "location": "Centurion",
-      "text": "We've been using Don's Transport for our company's transport needs for over a year now. Reliable, professional, and great value. Our go-to shuttle service.",
+      "text": "We've been using The Don Wagon for our company's transport needs for over a year now. Reliable, professional, and great value. Our go-to shuttle service.",
       "rating": 5,
       "service": "point-to-point",
       "verified": true

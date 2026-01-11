@@ -1,12 +1,12 @@
 # CLAUDE.md
 
-Don's Transport Shuttle - Static marketing website for a Gauteng-based transport company.
+The Don Wagon - Static marketing website for a modern Gauteng-based city shuttle company.
 
 ## Quick Reference
 
 | Item | Details |
 |------|---------|
-| **Project** | Don's Transport Shuttle Website |
+| **Project** | The Don Wagon Website |
 | **Framework** | Astro 4.x (static output) |
 | **Styling** | Tailwind CSS 3.x |
 | **Icons** | Lucide (lucide-astro) |
@@ -209,7 +209,7 @@ PUBLIC_WHATSAPP_NUMBER=27773642006
 PUBLIC_EMAIL=donstransport@voogt.co.za
 PUBLIC_PHONE=+27 77 364 2006
 PUBLIC_ADDRESS=Pretoria, Gauteng
-PUBLIC_BUSINESS_NAME=Don's Transport Shuttle
+PUBLIC_BUSINESS_NAME=The Don Wagon
 ```
 
 **Usage in components:**

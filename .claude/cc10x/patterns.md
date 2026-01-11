@@ -41,7 +41,7 @@
 - **Service Cards**: Icon + title + description + price + CTA link
 
 ## SEO Patterns
-- **Title format**: `{page title} | Don's Transport Shuttle`
+- **Title format**: `{page title} | The Don Wagon` (uses PUBLIC_BUSINESS_NAME env variable)
 - **Meta tags**: title, description, keywords, canonical, OG tags, Twitter cards
 - **Structured data**: LocalBusiness (default), FAQPage (service pages), Service schemas
 - **Geo tags**: `geo.region="ZA-GP"`, `geo.placename="Johannesburg"`
@@ -60,6 +60,13 @@
 - **Tailwind classes**: Must use `class:list` or `class` attribute, not `className`
 - **SVG icons**: Inline SVG strings with `set:html` or `<Fragment set:html={icon} />`
 - **Animation delays**: Use inline `style="animation-delay: {value}ms"` for staggered animations
+
+## Branding Patterns
+- **Company name**: "The Don Wagon" (exact capitalization - not "the don wagon" or "The Don wagon")
+- **Slogan**: "Modern City Shuttle" (used in header/footer taglines)
+- **Environment variable**: `PUBLIC_BUSINESS_NAME=The Don Wagon` in .env
+- **Logo display**: Two-line format - "The Don Wagon" (bold) + "Modern City Shuttle" (accent color, uppercase)
+- **Fallback pattern**: Components should have fallback: `import.meta.env.PUBLIC_BUSINESS_NAME || "The Don Wagon"`
 
 ## Accessibility
 - **Color contrast**: 4.5:1 minimum for text, 3:1 for large text

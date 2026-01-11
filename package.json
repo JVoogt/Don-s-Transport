@@ -1,8 +1,8 @@
 {
-  "name": "dons-transport-shuttle",
+  "name": "the-don-wagon",
   "type": "module",
   "version": "1.0.0",
-  "description": "Professional transport shuttle website for Don's Transport Shuttle - Gauteng",
+  "description": "Professional modern city shuttle website for The Don Wagon - Gauteng",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

@@ -1,8 +1,8 @@
-# Don's Transport Shuttle - Website Project
+# The Don Wagon - Website Project
 
 ## Overview
 
-Professional transport shuttle website for **Don's Transport Shuttle**, a Gauteng-based transport company offering premium shuttle and logistics services.
+Professional transport shuttle website for **The Don Wagon**, a Gauteng-based transport company offering premium shuttle and logistics services.
 
 **Live URL (temporary):** `https://transport.voogt.co.za`  
 **Future URL:** TBD (will move to shared Linux hosting via cPanel)
@@ -36,7 +36,7 @@ Professional transport shuttle website for **Don's Transport Shuttle**, a Gauten
 ## Project Structure
 
 ```
-dons-transport-shuttle/
+the-don-wagon/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── Header.astro
@@ -180,7 +180,7 @@ Each service page needs:
 
 ```javascript
 // WhatsApp integration example
-const whatsappNumber = "27XXXXXXXXX"; // Don's number
+const whatsappNumber = "27XXXXXXXXX"; // The Don Wagon's number
 const message = encodeURIComponent("Hi, I'd like to book a shuttle...");
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 ```
@@ -197,7 +197,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 ```bash
 # Clone and install
 git clone <repo-url>
-cd dons-transport-shuttle
+cd the-don-wagon
 npm install
 
 # Start dev server
@@ -254,10 +254,10 @@ Key competitors in Gauteng shuttle market:
 - [ ] Vehicle photos (or approval to use stock)
 - [ ] Testimonials (real or approval for placeholders)
 - [ ] Pricing structure (even if just "from R XXX")
-- [ ] Unique selling points / Why choose Don's?
-- [ ] Don's story / About section content
+- [ ] Unique selling points / Why choose The Don Wagon?
+- [ ] The Don Wagon story / About section content
 - [ ] Any certifications or affiliations
 
 ## License
 
-Private - All rights reserved Don's Transport Shuttle
+Private - All rights reserved The Don Wagon
