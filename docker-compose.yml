@@ -1,0 +1,31 @@
+services:
+  # Development server with hot reload
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "8210:4321"
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+  # Production static file server
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.transport.rule=Host(`transport.voogt.co.za`)"
+      - "traefik.http.routers.transport.entrypoints=websecure"
+      - "traefik.http.routers.transport.tls.certresolver=letsencrypt"
+      - "traefik.http.services.transport.loadbalancer.server.port=80"

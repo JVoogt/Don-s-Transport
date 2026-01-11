@@ -1,0 +1,297 @@
+---
+/**
+ * Homepage - Don's Transport Shuttle
+ * SEO-optimized landing page with hero, services, testimonials, and CTAs
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import services from '../data/services.json';
+import testimonials from '../data/testimonials.json';
+
+// SEO configuration
+const seo = {
+  title: 'Reliable Gauteng Shuttle Service',
+  description: 'Professional transport shuttle services in Johannesburg & Pretoria. Airport transfers, point-to-point, chauffeur services & parcel delivery. Book via WhatsApp for instant quotes.',
+  keywords: 'gauteng shuttle service, johannesburg airport transfer, pretoria shuttle, or tambo airport shuttle, executive chauffeur gauteng, same day delivery johannesburg',
+};
+
+// Service icons mapping (using inline SVGs for performance)
+const serviceIcons: Record<string, string> = {
+  plane: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>`,
+  'map-pin': `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  crown: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3l3.5 7L12 6l3.5 4L19 3M5 3v11a2 2 0 002 2h10a2 2 0 002-2V3M7 21h10"/></svg>`,
+  package: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>`,
+};
+
+// WhatsApp booking URL
+const whatsappNumber = '27XXXXXXXXX'; // TODO: Update
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to book a shuttle. My details:\n\nPickup:\nDropoff:\nDate:\nTime:\nPassengers:")}`;
+---
+
+<BaseLayout {...seo}>
+  <Header slot="header" transparent={true} />
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center bg-hero-pattern overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 bg-subtle-grid opacity-50"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-500/10 to-transparent"></div>
+    
+    <!-- Diagonal accent line -->
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-r from-accent-500/20 via-transparent to-transparent transform -skew-y-3 origin-bottom-left"></div>
+    
+    <div class="container mx-auto px-4 lg:px-8 pt-32 pb-20 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Hero Content -->
+        <div class="text-white space-y-8">
+          <div class="space-y-4">
+            <span class="inline-block px-4 py-1.5 bg-accent-500/20 border border-accent-500/30 rounded-full text-accent-400 text-sm font-medium tracking-wide animate-fade-in">
+              Gauteng's Trusted Transport Partner
+            </span>
+            <h1 class="text-display-lg lg:text-display-xl font-display font-bold leading-tight animate-fade-in-up" style="animation-delay: 100ms">
+              Your Journey,<br/>
+              <span class="text-accent-400">Our Priority</span>
+            </h1>
+            <p class="text-xl text-warm-200 max-w-xl animate-fade-in-up" style="animation-delay: 200ms">
+              Professional shuttle services across Gauteng. Airport transfers, point-to-point transport, executive chauffeur, and specialized parcel delivery.
+            </p>
+          </div>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 300ms">
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-accent group"
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Book on WhatsApp
+              <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a 
+              href="/services"
+              class="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200"
+            >
+              View Services
+            </a>
+          </div>
+          
+          <!-- Trust indicators -->
+          <div class="flex flex-wrap items-center gap-8 pt-8 border-t border-white/10 animate-fade-in-up" style="animation-delay: 400ms">
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-accent-400">{testimonials.stats.totalTrips}</div>
+              <div class="text-sm text-warm-300">Trips Completed</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-accent-400">{testimonials.stats.onTimeRate}</div>
+              <div class="text-sm text-warm-300">On-Time Rate</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-accent-400">{testimonials.stats.yearsExperience}</div>
+              <div class="text-sm text-warm-300">Years Experience</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero Image Placeholder -->
+        <div class="hidden lg:block relative animate-fade-in-up" style="animation-delay: 300ms">
+          <div class="relative">
+            <!-- Decorative elements -->
+            <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent-500/20 rounded-2xl"></div>
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-accent-500/10 rounded-2xl"></div>
+            
+            <!-- Image placeholder - replace with actual vehicle image -->
+            <div class="relative bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl aspect-[4/3] flex items-center justify-center shadow-2xl">
+              <div class="text-center p-8">
+                <svg class="w-24 h-24 mx-auto text-white/40 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <p class="text-white/60 text-sm">Vehicle Image</p>
+                <p class="text-white/40 text-xs mt-1">Replace with professional photo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-24 bg-warm-50" id="services">
+    <div class="container mx-auto px-4 lg:px-8">
+      <!-- Section header -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="text-accent-600 font-semibold text-sm tracking-wide uppercase">Our Services</span>
+        <h2 class="text-display-md font-display font-bold text-primary-500 mt-2 mb-4">
+          Professional Transport Solutions
+        </h2>
+        <p class="text-warm-600 text-lg">
+          From airport shuttles to executive chauffeur services, we provide reliable transport across Gauteng.
+        </p>
+      </div>
+      
+      <!-- Services grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.services.map((service, index) => (
+          <article 
+            class="group bg-white rounded-2xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300 transform hover:-translate-y-1"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-accent-100 rounded-xl flex items-center justify-center text-accent-600 mb-6 group-hover:bg-accent-500 group-hover:text-white transition-colors">
+              <Fragment set:html={serviceIcons[service.icon]} />
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-xl font-display font-semibold text-primary-500 mb-3">
+              {service.title}
+            </h3>
+            <p class="text-warm-600 text-sm mb-4 line-clamp-3">
+              {service.shortDescription}
+            </p>
+            
+            <!-- Price & CTA -->
+            <div class="flex items-center justify-between pt-4 border-t border-warm-100">
+              <span class="text-sm text-warm-500">
+                From <span class="text-accent-600 font-semibold">{service.priceFrom}</span>
+              </span>
+              <a 
+                href={`/services/${service.slug}`}
+                class="text-primary-500 hover:text-accent-500 font-medium text-sm inline-flex items-center group/link"
+              >
+                Learn More
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-24 bg-primary-500 text-white relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 bg-subtle-grid opacity-5"></div>
+    
+    <div class="container mx-auto px-4 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Content -->
+        <div>
+          <span class="text-accent-400 font-semibold text-sm tracking-wide uppercase">Why Choose Us</span>
+          <h2 class="text-display-md font-display font-bold mt-2 mb-6">
+            Trusted by Thousands Across Gauteng
+          </h2>
+          <p class="text-warm-200 text-lg mb-8">
+            With years of experience serving Johannesburg, Pretoria, and surrounding areas, we've built our reputation on reliability, professionalism, and exceptional service.
+          </p>
+          
+          <!-- Features list -->
+          <ul class="space-y-4">
+            {[
+              { title: '24/7 Availability', desc: 'Early morning flights or late-night arrivals - we\'re always ready.' },
+              { title: 'Professional Drivers', desc: 'Vetted, trained, and committed to your safety and comfort.' },
+              { title: 'Fixed Pricing', desc: 'No surge pricing. Know your fare before you book.' },
+              { title: 'Real-Time Tracking', desc: 'Flight monitoring and live updates keep you informed.' },
+            ].map((feature) => (
+              <li class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-6 h-6 bg-accent-500 rounded-full flex items-center justify-center mt-1">
+                  <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold">{feature.title}</h4>
+                  <p class="text-warm-300 text-sm">{feature.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Testimonials -->
+        <div class="space-y-6">
+          {testimonials.testimonials.slice(0, 3).map((testimonial) => (
+            <blockquote class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <!-- Stars -->
+              <div class="flex space-x-1 mb-3">
+                {Array.from({ length: testimonial.rating }).map(() => (
+                  <svg class="w-5 h-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <p class="text-warm-100 mb-4">"{testimonial.text}"</p>
+              <footer class="flex items-center space-x-2">
+                <span class="font-semibold">{testimonial.name}</span>
+                <span class="text-warm-400">•</span>
+                <span class="text-warm-300 text-sm">{testimonial.location}</span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-warm-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-diagonal from-accent-500 to-accent-600 rounded-3xl p-12 lg:p-16 shadow-accent relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+        
+        <div class="relative z-10">
+          <h2 class="text-display-md font-display font-bold text-white mb-4">
+            Ready to Book Your Ride?
+          </h2>
+          <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            Get an instant quote via WhatsApp or email. No waiting, no complicated forms. Just reliable transport when you need it.
+          </p>
+          
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-8 py-4 bg-white text-accent-600 font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Book on WhatsApp
+            </a>
+            <a 
+              href="mailto:bookings@donstransport.co.za?subject=Booking%20Enquiry"
+              class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-xl border border-white/30 transition-all duration-200"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Email Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

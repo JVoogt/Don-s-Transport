@@ -1,0 +1,64 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Michael T.",
+      "location": "Sandton",
+      "text": "I use Don's for all my airport transfers. Always on time, professional drivers, and the vehicles are spotless. Highly recommend for business travelers.",
+      "rating": 5,
+      "service": "airport-transfers",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "name": "Sarah K.",
+      "location": "Pretoria",
+      "text": "Excellent service! Booked a chauffeur for a client visit and they were so impressed with the professionalism. Will definitely use again.",
+      "rating": 5,
+      "service": "chauffeur-services",
+      "verified": true
+    },
+    {
+      "id": 3,
+      "name": "James M.",
+      "location": "Midrand",
+      "text": "Had urgent documents that needed to get to Joburg CBD within hours. Don's delivered on time and kept me updated throughout. Lifesaver!",
+      "rating": 5,
+      "service": "parcel-delivery",
+      "verified": true
+    },
+    {
+      "id": 4,
+      "name": "Lisa P.",
+      "location": "Centurion",
+      "text": "We've been using Don's Transport for our company's transport needs for over a year now. Reliable, professional, and great value. Our go-to shuttle service.",
+      "rating": 5,
+      "service": "point-to-point",
+      "verified": true
+    },
+    {
+      "id": 5,
+      "name": "David R.",
+      "location": "Fourways",
+      "text": "Early morning flight from OR Tambo and they were there 10 minutes early. Made getting to the airport stress-free. Great communication too.",
+      "rating": 5,
+      "service": "airport-transfers",
+      "verified": true
+    },
+    {
+      "id": 6,
+      "name": "Amanda B.",
+      "location": "Rosebank",
+      "text": "Used the point-to-point service for a medical appointment. Driver was courteous and patient while I was inside. Much appreciated the personal service.",
+      "rating": 5,
+      "service": "point-to-point",
+      "verified": true
+    }
+  ],
+  "stats": {
+    "totalTrips": "5000+",
+    "happyClients": "2500+",
+    "yearsExperience": "10+",
+    "onTimeRate": "98%"
+  }
+}

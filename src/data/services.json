@@ -1,0 +1,144 @@
+{
+  "services": [
+    {
+      "id": "airport-transfers",
+      "slug": "airport-transfers",
+      "title": "Airport Transfers",
+      "shortTitle": "Airport Transfers",
+      "icon": "plane",
+      "shortDescription": "Reliable airport shuttle service to and from OR Tambo, Lanseria, and regional airports across Gauteng.",
+      "longDescription": "Don's Transport Shuttle provides professional airport transfer services throughout Gauteng. Whether you're flying out of OR Tambo International Airport, Lanseria International Airport, or any regional airfield, we ensure you arrive on time, every time. Our drivers monitor flight schedules and adjust pickup times accordingly, so delays never leave you stranded.",
+      "features": [
+        "24/7 availability for early morning and late-night flights",
+        "Real-time flight tracking and schedule monitoring",
+        "Meet and greet service at arrivals",
+        "Comfortable, air-conditioned vehicles",
+        "Luggage assistance included",
+        "Fixed rates with no surge pricing"
+      ],
+      "priceFrom": "R350",
+      "ctaText": "Book Airport Transfer",
+      "seoKeywords": "airport shuttle johannesburg, or tambo airport transfer, lanseria airport shuttle, gauteng airport transport, pretoria airport transfer",
+      "coverImage": "/images/services/airport-transfer.webp",
+      "faqs": [
+        {
+          "question": "How early should I book my airport transfer?",
+          "answer": "We recommend booking at least 24 hours in advance, though we can often accommodate same-day bookings subject to availability."
+        },
+        {
+          "question": "What happens if my flight is delayed?",
+          "answer": "We track all flights in real-time. If your flight is delayed, we automatically adjust your pickup time at no extra charge."
+        },
+        {
+          "question": "Do you provide child seats?",
+          "answer": "Yes, please request a child seat when booking and specify the age of your child so we can provide the appropriate seat."
+        }
+      ]
+    },
+    {
+      "id": "point-to-point",
+      "slug": "point-to-point",
+      "title": "Point-to-Point Transfers",
+      "shortTitle": "Point to Point",
+      "icon": "map-pin",
+      "shortDescription": "Convenient door-to-door transport between any two locations in Gauteng and beyond.",
+      "longDescription": "Need to get from A to B without the hassle of driving yourself? Don's Transport Shuttle offers flexible point-to-point transfer services across Gauteng and neighboring provinces. From business meetings in Sandton to family visits in Pretoria, we provide reliable, comfortable transport tailored to your schedule.",
+      "features": [
+        "Door-to-door service anywhere in Gauteng",
+        "Inter-city transfers (Johannesburg, Pretoria, Midrand, etc.)",
+        "Flexible scheduling to suit your needs",
+        "Multiple stops available on request",
+        "Professional, uniformed drivers",
+        "Clean, well-maintained vehicles"
+      ],
+      "priceFrom": "R250",
+      "ctaText": "Book Transfer",
+      "seoKeywords": "point to point transfer johannesburg, door to door shuttle gauteng, pretoria to johannesburg shuttle, sandton transport service",
+      "coverImage": "/images/services/point-to-point.webp",
+      "faqs": [
+        {
+          "question": "Can I make multiple stops during my trip?",
+          "answer": "Yes, we can accommodate multiple stops. Just let us know when booking so we can provide an accurate quote."
+        },
+        {
+          "question": "How far in advance do I need to book?",
+          "answer": "While we recommend 24-hour notice, we often have vehicles available for shorter notice bookings."
+        },
+        {
+          "question": "Do you operate outside of Gauteng?",
+          "answer": "Yes, we can arrange transfers to neighboring provinces. Contact us for a custom quote."
+        }
+      ]
+    },
+    {
+      "id": "chauffeur-services",
+      "slug": "chauffeur-services",
+      "title": "Chauffeur Services",
+      "shortTitle": "Chauffeur",
+      "icon": "crown",
+      "shortDescription": "Executive chauffeur services for business professionals and VIP clients requiring premium transport.",
+      "longDescription": "Elevate your travel experience with Don's executive chauffeur services. Perfect for business executives, visiting dignitaries, or anyone who values comfort and professionalism. Our chauffeurs are trained in executive protocol and discretion, ensuring a seamless, prestigious travel experience.",
+      "features": [
+        "Executive and luxury vehicle options",
+        "Professionally trained, smartly dressed chauffeurs",
+        "Hourly, half-day, or full-day bookings",
+        "Corporate account options available",
+        "Complete discretion and confidentiality",
+        "Complimentary water and Wi-Fi"
+      ],
+      "priceFrom": "R650",
+      "ctaText": "Book Chauffeur",
+      "seoKeywords": "executive chauffeur johannesburg, vip transport gauteng, corporate chauffeur service, luxury car service pretoria, business transport sandton",
+      "coverImage": "/images/services/chauffeur.webp",
+      "faqs": [
+        {
+          "question": "What types of vehicles are available for chauffeur services?",
+          "answer": "We offer a range of executive vehicles including sedans and SUVs. Let us know your preferences and group size."
+        },
+        {
+          "question": "Can I book a chauffeur for a full day?",
+          "answer": "Absolutely. We offer hourly, half-day, and full-day rates. Full-day bookings include up to 10 hours of service."
+        },
+        {
+          "question": "Do you provide chauffeur services for events?",
+          "answer": "Yes, we cater for corporate events, weddings, conferences, and special occasions. Contact us for custom packages."
+        }
+      ]
+    },
+    {
+      "id": "parcel-delivery",
+      "slug": "parcel-delivery",
+      "title": "Specialized Parcel Delivery",
+      "shortTitle": "Parcel Delivery",
+      "icon": "package",
+      "shortDescription": "Secure, time-sensitive parcel delivery for documents, packages, and specialized cargo across Gauteng.",
+      "longDescription": "When standard courier services aren't fast enough or secure enough, Don's Transport Shuttle delivers. Our specialized parcel delivery service is perfect for time-critical documents, valuable items, or packages requiring special handling. Personal attention from pickup to delivery ensures your items arrive safely.",
+      "features": [
+        "Same-day delivery within Gauteng",
+        "Secure handling of valuable items",
+        "Real-time tracking and updates",
+        "Proof of delivery with signature",
+        "Temperature-sensitive item handling",
+        "Corporate invoicing available"
+      ],
+      "priceFrom": "R200",
+      "ctaText": "Book Delivery",
+      "seoKeywords": "same day delivery johannesburg, urgent parcel delivery gauteng, secure document courier, time sensitive delivery pretoria",
+      "coverImage": "/images/services/parcel-delivery.webp",
+      "faqs": [
+        {
+          "question": "How quickly can you deliver a parcel?",
+          "answer": "For urgent deliveries within Johannesburg, we can often deliver within 2-4 hours depending on traffic and availability."
+        },
+        {
+          "question": "Do you handle fragile or valuable items?",
+          "answer": "Yes, we specialize in careful handling of sensitive items. Please inform us of special requirements when booking."
+        },
+        {
+          "question": "Can you deliver outside normal business hours?",
+          "answer": "Yes, we operate 24/7 for urgent deliveries. After-hours rates may apply."
+        }
+      ]
+    }
+  ]
+}
