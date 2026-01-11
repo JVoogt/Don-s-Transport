@@ -23,9 +23,30 @@ services:
     ports:
       - "8211:80"
     restart: unless-stopped
+    networks:
+      - default
+      - traefik-network
     labels:
       - "traefik.enable=true"
+      # HTTP router for ACME challenge and redirect
+      - "traefik.http.routers.transport-http.rule=Host(`transport.voogt.co.za`)"
+      - "traefik.http.routers.transport-http.entrypoints=web"
+      - "traefik.http.routers.transport-http.middlewares=transport-https-redirect"
+      # HTTP to HTTPS redirect middleware
+      - "traefik.http.middlewares.transport-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.transport-https-redirect.redirectscheme.permanent=true"
+      # HTTPS router with TLS
       - "traefik.http.routers.transport.rule=Host(`transport.voogt.co.za`)"
       - "traefik.http.routers.transport.entrypoints=websecure"
+      - "traefik.http.routers.transport.tls=true"
       - "traefik.http.routers.transport.tls.certresolver=letsencrypt"
+      # Service configuration
       - "traefik.http.services.transport.loadbalancer.server.port=80"
+      - "traefik.docker.network=homeassistant_default"
+
+networks:
+  default:
+    driver: bridge
+  traefik-network:
+    external: true
+    name: homeassistant_default
