@@ -1,22 +1,15 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
+// import sitemap from '@astrojs/sitemap'; // TODO: Fix sitemap plugin compatibility
 
 // https://astro.build/config
 export default defineConfig({
   // Site URL - update when domain changes
   site: 'https://transport.voogt.co.za',
-  
+
   integrations: [
     tailwind(),
-    sitemap({
-      // Customize sitemap generation
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
-      // Custom filter if needed
-      filter: (page) => !page.includes('/admin'),
-    }),
+    // sitemap(), // Temporarily disabled - compatibility issue
   ],
   
   // Build configuration for static export

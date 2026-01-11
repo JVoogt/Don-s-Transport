@@ -42,9 +42,11 @@ npm run lint                # Lint source files
 | Service | Port | Description |
 |---------|------|-------------|
 | `dev` | **8210** | Development server with hot reload |
-| `prod` | 80 | Production Nginx server |
+| `prod` | **8211** | Production Nginx server |
 
-**Important:** Development server is accessible at `http://localhost:8210`
+**Important:**
+- Development server: `http://localhost:8210`
+- Production server: `http://localhost:8211` (or `https://transport.voogt.co.za` via Traefik)
 
 The Docker setup uses:
 - Node 20 Alpine for building
