@@ -1,0 +1,248 @@
+---
+/**
+ * Airport Transfers Service Page - Don's Transport Shuttle
+ * SEO-optimized individual service page with features, FAQs, and booking CTA
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import services from '../../data/services.json';
+
+// Get airport-transfers service data
+const service = services.services.find(s => s.slug === 'airport-transfers');
+
+if (!service) {
+  throw new Error('Airport Transfers service not found in services.json');
+}
+
+// SEO configuration from service data
+const seo = {
+  title: service.title,
+  description: service.longDescription,
+  keywords: service.seoKeywords,
+  structuredData: {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: service.faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+};
+
+// Contact details for booking CTA
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '27773642006';
+const whatsappMessage = encodeURIComponent(`Hi, I'd like to book an ${service.title} service. My details:
+
+Pickup:
+Dropoff:
+Date:
+Time:
+Passengers:`);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+// Feature icon (plane SVG)
+const planeIcon = `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>`;
+---
+
+<BaseLayout {...seo}>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center bg-primary-500 overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 bg-subtle-grid opacity-5"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-500/10 to-transparent"></div>
+
+    <div class="container mx-auto px-4 lg:px-8 pt-32 pb-20 relative z-10">
+      <div class="max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 animate-fade-in" aria-label="Breadcrumb">
+          <ol class="flex items-center space-x-2 text-sm text-warm-300">
+            <li><a href="/" class="hover:text-accent-400 transition-colors">Home</a></li>
+            <li><span class="text-warm-500">/</span></li>
+            <li><a href="/services" class="hover:text-accent-400 transition-colors">Services</a></li>
+            <li><span class="text-warm-500">/</span></li>
+            <li class="text-accent-400" aria-current="page">{service.shortTitle}</li>
+          </ol>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="space-y-6 text-white">
+          <div class="w-16 h-16 bg-accent-500 rounded-xl flex items-center justify-center text-white animate-fade-in-up">
+            <Fragment set:html={planeIcon} />
+          </div>
+
+          <h1 class="text-display-lg lg:text-display-xl font-display font-bold leading-tight animate-fade-in-up" style="animation-delay: 100ms">
+            {service.title}
+          </h1>
+
+          <p class="text-xl text-warm-200 max-w-3xl animate-fade-in-up" style="animation-delay: 200ms">
+            {service.shortDescription}
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up" style="animation-delay: 300ms">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-accent group"
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              {service.ctaText}
+              <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+
+            <span class="inline-flex items-center px-6 py-4 bg-white/10 rounded-xl border border-white/20 text-white font-semibold">
+              From <span class="text-accent-400 ml-2 text-2xl font-display">{service.priceFrom}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Description Section -->
+  <section class="py-16 bg-warm-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-soft">
+          <h2 class="text-display-md font-display font-bold text-primary-500 mb-6">
+            Professional Airport Transfer Service
+          </h2>
+          <p class="text-warm-600 text-lg leading-relaxed">
+            {service.longDescription}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-display-md font-display font-bold text-primary-500 mb-12 text-center">
+          What's Included
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {service.features.map((feature) => (
+            <div class="flex items-start space-x-4 p-6 bg-warm-50 rounded-xl hover:bg-accent-50 transition-colors">
+              <div class="flex-shrink-0 w-6 h-6 bg-accent-500 rounded-full flex items-center justify-center mt-1">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <p class="text-warm-700 font-medium flex-1">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-16 bg-primary-500 text-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-display-md font-display font-bold mb-6">
+          Transparent Pricing
+        </h2>
+        <p class="text-warm-200 text-lg mb-8 max-w-2xl mx-auto">
+          No surge pricing, no hidden fees. Our airport transfer rates are fixed and competitive. Get an instant quote by contacting us on WhatsApp.
+        </p>
+
+        <div class="inline-block bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div class="text-5xl font-display font-bold text-accent-400 mb-2">
+            {service.priceFrom}
+          </div>
+          <p class="text-warm-300">Starting price for airport transfers</p>
+        </div>
+
+        <p class="text-warm-300 text-sm mt-6 max-w-xl mx-auto">
+          Final price depends on pickup location, destination, and number of passengers. Contact us for an accurate quote.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-warm-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-display-md font-display font-bold text-primary-500 mb-12 text-center">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="space-y-6">
+          {service.faqs.map((faq, index) => (
+            <details class="group bg-white rounded-xl shadow-soft overflow-hidden">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-warm-50 transition-colors">
+                <h3 class="font-display font-semibold text-lg text-primary-500 pr-8">
+                  {faq.question}
+                </h3>
+                <svg class="w-6 h-6 text-accent-500 flex-shrink-0 transform group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 pt-2">
+                <p class="text-warm-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-diagonal from-accent-500 to-accent-600 rounded-3xl p-12 lg:p-16 shadow-accent relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+
+        <div class="relative z-10">
+          <h2 class="text-display-md font-display font-bold text-white mb-4">
+            Ready to Book Your Airport Transfer?
+          </h2>
+          <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            Get an instant quote on WhatsApp. Just tell us your pickup location, destination, date, and number of passengers.
+          </p>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-8 py-4 bg-white text-accent-600 font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            {service.ctaText}
+          </a>
+
+          <p class="text-white/80 text-sm mt-6">
+            Or <a href="/services" class="underline hover:text-white transition-colors">view all our services</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

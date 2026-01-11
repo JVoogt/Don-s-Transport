@@ -25,8 +25,9 @@ const serviceIcons: Record<string, string> = {
   package: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>`,
 };
 
-// WhatsApp booking URL
-const whatsappNumber = '27XXXXXXXXX'; // TODO: Update
+// Contact details from environment variables
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '27773642006';
+const email = import.meta.env.PUBLIC_EMAIL || 'donstransport@voogt.co.za';
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to book a shuttle. My details:\n\nPickup:\nDropoff:\nDate:\nTime:\nPassengers:")}`;
 ---
 
@@ -278,8 +279,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("
               </svg>
               Book on WhatsApp
             </a>
-            <a 
-              href="mailto:bookings@donstransport.co.za?subject=Booking%20Enquiry"
+            <a
+              href={`mailto:${email}?subject=Booking%20Enquiry`}
               class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-xl border border-white/30 transition-all duration-200"
             >
               <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

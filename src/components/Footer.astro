@@ -19,12 +19,12 @@ const companyLinks = [
   { name: 'Get a Quote', href: '/quote' },
 ];
 
-// TODO: Update with real contact details
+// Contact details from environment variables
 const contactInfo = {
-  phone: '+27 XX XXX XXXX',
-  whatsapp: '27XXXXXXXXX',
-  email: 'bookings@donstransport.co.za',
-  address: 'Johannesburg, Gauteng',
+  phone: import.meta.env.PUBLIC_PHONE || '+27 77 364 2006',
+  whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER || '27773642006',
+  email: import.meta.env.PUBLIC_EMAIL || 'donstransport@voogt.co.za',
+  address: import.meta.env.PUBLIC_ADDRESS || 'Pretoria, Gauteng',
 };
 ---
 

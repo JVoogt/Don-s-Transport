@@ -19,8 +19,9 @@ Don's Transport Shuttle - Static marketing website for a Gauteng-based transport
 
 ```bash
 # Docker (preferred)
-docker-compose up dev       # Start dev server (http://localhost:8210)
-docker-compose up prod      # Production build with Nginx
+docker compose up dev       # Start dev server (http://localhost:8210)
+docker compose build dev    # Rebuild dev container
+docker compose down         # Stop all containers
 
 # Direct npm (if needed)
 npm install                 # Install dependencies
@@ -33,6 +34,22 @@ npm run astro check         # Type check Astro files
 npm run format              # Format with Prettier
 npm run lint                # Lint source files
 ```
+
+---
+
+## Docker Configuration
+
+| Service | Port | Description |
+|---------|------|-------------|
+| `dev` | **8210** | Development server with hot reload |
+| `prod` | 80 | Production Nginx server |
+
+**Important:** Development server is accessible at `http://localhost:8210`
+
+The Docker setup uses:
+- Node 20 Alpine for building
+- Nginx Alpine for production serving
+- Volume mounts for hot reload in development
 
 ---
 
@@ -182,27 +199,33 @@ Every page must include:
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and configure:
+Copy `.env.example` to `.env` and configure. Current values in `.env`:
 
 ```bash
 PUBLIC_SITE_URL=https://transport.voogt.co.za
-PUBLIC_WHATSAPP_NUMBER=27XXXXXXXXX
-PUBLIC_EMAIL=bookings@donstransport.co.za
-PUBLIC_PHONE=+27 XX XXX XXXX
-PUBLIC_ADDRESS=Johannesburg, Gauteng
+PUBLIC_WHATSAPP_NUMBER=27773642006
+PUBLIC_EMAIL=donstransport@voogt.co.za
+PUBLIC_PHONE=+27 77 364 2006
+PUBLIC_ADDRESS=Pretoria, Gauteng
+PUBLIC_BUSINESS_NAME=Don's Transport Shuttle
+```
+
+**Usage in components:**
+```astro
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '27773642006';
+const email = import.meta.env.PUBLIC_EMAIL || 'donstransport@voogt.co.za';
 ```
 
 ---
 
 ## Content Pending from Client
 
-- [ ] Business phone number
-- [ ] WhatsApp Business number
-- [ ] Email address
-- [ ] Physical address
+- [x] Business phone number (+27 77 364 2006)
+- [x] WhatsApp Business number (27773642006)
+- [x] Email address (donstransport@voogt.co.za)
+- [x] Physical address (Pretoria, Gauteng)
 - [ ] Vehicle photos
 - [ ] Real testimonials
-- [ ] Pricing details
 - [ ] About/story content
 
 ---

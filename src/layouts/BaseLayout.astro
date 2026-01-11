@@ -26,22 +26,28 @@ const {
   structuredData,
 } = Astro.props;
 
-const siteName = "Don's Transport Shuttle";
+// Contact details from environment variables
+const phone = import.meta.env.PUBLIC_PHONE || '+27 77 364 2006';
+const email = import.meta.env.PUBLIC_EMAIL || 'donstransport@voogt.co.za';
+const address = import.meta.env.PUBLIC_ADDRESS || 'Pretoria, Gauteng';
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://transport.voogt.co.za';
+
+const siteName = import.meta.env.PUBLIC_BUSINESS_NAME || "Don's Transport Shuttle";
 const fullTitle = `${title} | ${siteName}`;
 
 // Default LocalBusiness structured data
 const defaultStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://transport.voogt.co.za/#organization',
+  '@id': `${siteUrl}/#organization`,
   name: siteName,
   description: 'Professional transport shuttle services in Gauteng. Airport transfers, point-to-point transport, chauffeur services, and specialized parcel delivery.',
-  url: 'https://transport.voogt.co.za',
-  telephone: '+27XXXXXXXXX', // TODO: Update with actual number
-  email: 'bookings@donstransport.co.za', // TODO: Update with actual email
+  url: siteUrl,
+  telephone: phone,
+  email: email,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Johannesburg',
+    addressLocality: address.split(',')[0]?.trim() || 'Pretoria',
     addressRegion: 'Gauteng',
     addressCountry: 'ZA',
   },
